@@ -1,0 +1,26 @@
+{
+  "name": "youmightnotneedelectron",
+  "version": "1.0.0",
+  "description": "Offline, persistent applications in the browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss  --include-path node_modules/normalize.css sass/app.scss ./public.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aeharding/youmightnotneedelectron.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aeharding/youmightnotneedelectron/issues"
+  },
+  "homepage": "https://github.com/aeharding/youmightnotneedelectron#readme",
+  "devDependencies": {
+    "node-sass": "^3.8.0",
+    "nodemon": "^1.9.2",
+    "normalize.css": "^4.2.0"
+  }
+}

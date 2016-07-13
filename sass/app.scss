@@ -1,0 +1,97 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
+
+@import 'normalize';
+@import 'variables';
+
+body {
+  max-width: 768px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+header {
+  font-family: 'Oswald';
+  background-color: $black;
+  color: $yellow;
+  text-align: center;
+  text-transform: uppercase;
+
+  padding: 1em 0;
+  font-size: 3.5em;
+  margin-top: 0.5em;
+
+  .youmightnotneed {
+      display: inline-block;
+      animation: slideUp 1s ease;
+  }
+
+  .electron {
+    color: $electron;
+    font-weight: 100;
+    display: inline-block;
+
+    animation: slideDown 1s ease;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-0.25em);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0.25em);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+main {
+  font-style: sans;
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: justify;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+}
+
+a {
+  text-decoration: none;
+  
+  &[href] {
+    color: $electron-dark;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 300;
+  color: $yellow-dark;
+}
+
+footer {
+  text-align: center;
+  font-style: sans;
+  padding: 1em 0;
+  font-size: 1.2em;
+}

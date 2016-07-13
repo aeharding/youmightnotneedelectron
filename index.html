@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You Might Not Need Electron</title>
+
+  <link rel="stylesheet" href="public.css">
+</head>
+<body>
+  <header><div class="youmightnotneed">You Might Not Need</div> <div class="electron">Electron</div></header>
+
+  <main>
+    <p>Electron can be a very powerful way to access computer resources that cannot be accessed through the web. Unfortunately, it can cause a lot of friction in packaging releases and upgrading clients for different platforms.</p>
+
+    <p>You might be surprised about the browser functionality available to create a very close to native experience. Many open source projects make these features easy to use. For <a href="http://offlinefirst.org">offline first</a> applications, many browser based open source solutions exist.</p>
+
+    <p>Some reasons why you may need to use Electron:</p>
+
+    <ul>
+      <li>Low-level APIs, like <a href="https://github.com/EmergingTechnologyAdvisors/node-serialport">node-serialport</a></li>
+      <li>Complex filesystem access</li>
+    </ul>
+
+    <p>A few examples of native-like capabilities available on your browser:</p>
+
+    <ol>
+      <li><a href="#offline">Offline content</a></li>
+      <li><a href="#database">Persistent client-side data/database</a></li>
+      <li><a href="#background-sync">Background sync</a></li>
+      <li><a href="#gamepad">Gamepad API</a></li>
+      <li><a href="#notifications">Web Notifications API</a></li>
+      <li><a href="#visibility">Page Visibility API</a></li>
+      <li><a href="#vibration">Vibration API</a></li>
+      <li><a href="#battery">Battery status API</a></li>
+    </ol>
+
+
+    <h2><a name="offline">1. Offline content</a></h2>
+
+    <p>Service workers are a way to allow any website to intercept XHR requests and serve any arbitrary content. The first time you load the page, the service worker is installed. The next time you load the page is more interesting: the service worker is activated <em>before</em> the first page is served, and thus the service worker can serve any/all content, regardless of anything else. No internet connection required.</p>
+
+    <p>Think of it like an web server sitting between your web page and your server, on the client. It can serve text, binaries -- you name it.</p>
+
+    <p>Because of the massive security ramifications of creating a persistent interceptor of all requests, you must use HTTPS to install a service worker.</p>
+
+    <p>Many different tools exist to allow you to use service workers more easily:</p>
+
+    <ul>
+      <li><a href="https://github.com/GoogleChrome/sw-toolbox">sw-toolbox</a>, built by the Google Chrome team, abstracts the service worker into a more expressive router, more akin to Express.</li>
+      <li><a href="https://github.com/GoogleChrome/sw-precache">sw-precache</a>, also built by the Google Chrome team, is built for more simple use cases of just caching files for offline use.</li>
+      <li><a href="https://github.com/GoogleChrome/sw-precache">offline-plugin</a> for Webpack creates a service worker file that caches your files.</li>
+    </ul>
+
+    <p>Support for service workers is very promising, and not too bad currently.<br>You can check browser support at <a href="https://jakearchibald.github.io/isserviceworkerready/">isserviceworkerready</a>.</p>
+
+
+    <h2><a name="offline">2. Persistent client-side data/database</a></h2>
+
+    <p>You are probably familiar with sessionStorage and localStorage. They're great because of their simplicity, but they're also limited because of that.</p>
+
+    <p>You may have heard of IndexedDB. All you need to know about it is that it is a NoSQL database in the browser. The API is shit, so you will not use it directly. Luckily, some very smart people in the open source world have made wonderful libraries on top it.</p>
+
+    <p>Here is a list of solutions, ordered high-level to low-level:</p>
+
+    <ul>
+      <li><a href="http://hood.ie">Hoodie</a> is an opinionated framework to build web applications that work offline out of the box. (It's currently in the middle of building Hoodie 2.)</li>
+      <li><a href="https://pouchdb.com">PouchDB</a> is a very powerful client-side database that can replicate with CouchDB. It is great because of its browser support. It has adapters for IndexedDB, WebSQL, localStorage, in-memory, and more, which means it can fall back onto the most ideal adapter for the browser. It has a wonderful API and great documentation.</li>
+      <li><a href="https://mozilla.github.io/localForage">localForage</a>, built by Mozilla, is a very simple localStorage-esque API with adapters to things like IndexedDB, allowing for better performance that is non-blocking to the UI.</li>
+    </ul>
+
+
+    <h2><a name="background-sync">3. Background sync</a></h2>
+    
+    <p>Background sync is not well supported, but it's trying to solve a hard problem: Deferring actions until the user has stable connectivity.</p>
+
+    <p>Think of a chat application in which the user is offline, send a message, and closes the page. When the user gains internet connectivity, that message will be sent, regardless of if the page is open or not!</p>
+
+    <p><a href="https://github.com/WICG/BackgroundSync/blob/master/explainer.md">Check out a Background Sync introduction here.</a></p>
+
+
+
+    <h2><a name="gamepad">4. Gamepad API</a></h2>
+
+    <p>For when you need to access user inputs beyond the keyboard, check out the Gamepad API. When you are building an HTML5 game, consider implementing it to make your game seem even more native.</p>
+
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API">MDN Introduction</a></p>
+
+
+
+    <h2><a name="notifications">5. Web Notifications API</a></h2>
+
+    <p>Web notifications are a great way for a chat application to notify the user of events in a web application.</p>
+
+    <p>The most common example is a chat application where the user gets a new message and needs to be notified.</p>
+
+    <p>For the best user experience, integrate this API with the <a href="#visibility">Page Visibility API</a> to only send notifications when the chat application is not visible to the user.</p>
+
+
+
+    <h2><a name="visibility">6. Page Visibility API</a></h2>
+
+    <p>The page visibility API can allow for very subtle user experience improvements in your app. Say you are building a chat application that uses the Web Notification API, Vibration API, or plays a sound. With this API, you could only do that when the page is not visible, reducing annoying and unecessary 'pings' when you already have the user's attention.</p>
+
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">MDN Page Visibility API</a></p>
+
+
+    <h2><a name="vibration">7. Vibration API</a></h2>
+
+    <p>The vibration API provides yet another way to get the user's attention upon an event.</p>
+
+    <p>Unfortunately, it is being abused by some sites and advertisers.</p>
+
+
+
+    <h2><a name="battery">8. Battery status API</a></h2>
+
+    <p>This API could be useful for reducing usage when the battery is low.</p>
+  </main>
+
+  <footer><a href="https://harding.ae">Made by Alexander Harding</a></footer>
+</body>
+</html>
