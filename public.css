@@ -374,19 +374,22 @@ body {
   margin: 0 auto;
   line-height: 1.5; }
 
-header {
+.header {
   font-family: 'Oswald';
   background-color: #223539;
-  color: #b1be74;
   text-align: center;
   text-transform: uppercase;
+  display: block;
   padding: 1em 0;
   font-size: 3.5em;
   margin-top: 0.5em; }
-  header .youmightnotneed {
+  .header:hover {
+    text-decoration: none; }
+  .header .youmightnotneed {
+    color: #b1be74;
     display: inline-block;
     animation: slideUp 1s ease; }
-  header .electron {
+  .header .electron {
     color: #74b1be;
     font-weight: 100;
     display: inline-block;
@@ -418,11 +421,10 @@ main {
   padding: 0 10px; }
 
 a {
-  text-decoration: none; }
-  a[href] {
-    color: #417e8b; }
-    a[href]:hover {
-      text-decoration: underline; }
+  text-decoration: none;
+  color: #417e8b; }
+  a:hover {
+    text-decoration: underline; }
 
 h1,
 h2,

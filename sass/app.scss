@@ -10,18 +10,23 @@ body {
   line-height: 1.5;
 }
 
-header {
+.header {
   font-family: 'Oswald';
   background-color: $black;
-  color: $yellow;
   text-align: center;
   text-transform: uppercase;
+  display: block;
 
   padding: 1em 0;
   font-size: 3.5em;
   margin-top: 0.5em;
 
+  &:hover {
+    text-decoration: none;
+  }
+
   .youmightnotneed {
+      color: $yellow;
       display: inline-block;
       animation: slideUp 1s ease;
   }
@@ -71,13 +76,10 @@ main {
 
 a {
   text-decoration: none;
-  
-  &[href] {
-    color: $electron-dark;
+  color: $electron-dark;
 
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
 
