@@ -35,7 +35,7 @@
     </ol>
 
 
-    <h2><a name="offline">1. Offline content</a></h2>
+    <h2 id="offline">1. Offline content</h2>
 
     <p>Service workers are a way to allow any website to intercept XHR requests and serve any arbitrary content. The first time you load the page, the service worker is installed. The next time you load the page is more interesting: the service worker is activated <em>before</em> the first page is served, and thus the service worker can serve any/all content, regardless of anything else. No internet connection required.</p>
 
@@ -54,7 +54,7 @@
     <p>Support for service workers is very promising, and not too bad currently.<br>You can check browser support at <a href="https://jakearchibald.github.io/isserviceworkerready/">isserviceworkerready</a>.</p>
 
 
-    <h2><a name="offline">2. Persistent client-side data/database</a></h2>
+    <h2 id="offline">2. Persistent client-side data/database</h2>
 
     <p>You are probably familiar with sessionStorage and localStorage. They're great because of their simplicity, but they're also limited because of that.</p>
 
@@ -69,7 +69,7 @@
     </ul>
 
 
-    <h2><a name="background-sync">3. Background sync</a></h2>
+    <h2 id="background-sync">3. Background sync</h2>
     
     <p>Background sync is not well supported, but it's trying to solve a hard problem: Deferring actions until the user has stable connectivity.</p>
 
@@ -79,7 +79,7 @@
 
 
 
-    <h2><a name="gamepad">4. Gamepad API</a></h2>
+    <h2 id="gamepad">4. Gamepad API</h2>
 
     <p>For when you need to access user inputs beyond the keyboard, check out the Gamepad API. When you are building an HTML5 game, consider implementing it to make your game seem even more native.</p>
 
@@ -87,7 +87,7 @@
 
 
 
-    <h2><a name="notifications">5. Web Notifications API</a></h2>
+    <h2 id="notifications">5. Web Notifications API</h2>
 
     <p>Web notifications are a great way for a chat application to notify the user of events in a web application.</p>
 
@@ -97,14 +97,14 @@
 
 
 
-    <h2><a name="visibility">6. Page Visibility API</a></h2>
+    <h2 id="visibility">6. Page Visibility API</h2>
 
     <p>The page visibility API can allow for very subtle user experience improvements in your app. Say you are building a chat application that uses the Web Notification API, Vibration API, or plays a sound. With this API, you could only do that when the page is not visible, reducing annoying and unecessary 'pings' when you already have the user's attention.</p>
 
     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">MDN Page Visibility API</a></p>
 
 
-    <h2><a name="vibration">7. Vibration API</a></h2>
+    <h2 id="vibration">7. Vibration API</h2>
 
     <p>The vibration API provides yet another way to get the user's attention upon an event.</p>
 
@@ -112,11 +112,11 @@
 
 
 
-    <h2><a name="battery">8. Battery status API</a></h2>
+    <h2 id="battery">8. Battery status API</h2>
 
     <p>This API could be useful for reducing usage when the battery is low.</p>
   </main>
 
-  <footer><a href="https://harding.ae">Made by Alexander Harding</a></footer>
+  <footer><a href="https://github.com/aeharding">Made by @aeharding</a></footer>
 </body>
 </html>
