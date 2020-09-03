@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/aeharding/youmightnotneedelectron#readme",
   "devDependencies": {
-    "node-sass": "^3.8.0",
+    "node-sass": "^4.14.1",
     "nodemon": "^1.9.2",
     "normalize.css": "^4.2.0"
   }
